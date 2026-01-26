@@ -4,3 +4,20 @@ api-gateway -> 8080
 inventory-service ->8083
 auth-service -> 8082
 notification-service -> 8084
+
+# docker command for kafka
+docker run -d \
+  --name kafka \
+  -p 9092:9092 \
+  -e KAFKA_BROKER_ID=1 \
+  -e KAFKA_ZOOKEEPER_CONNECT=host.docker.internal:2181 \
+  -e KAFKA_ADVERTISED_HOST_NAME=localhost \
+  -e KAFKA_ADVERTISED_PORT=9092 \
+  -e KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1 \
+  wurstmeister/kafka:2.13-2.8.1
+
+# docker command for zookeeper
+docker run -d \
+  --name zookeeper \
+  -p 2181:2181 \
+  zookeeper:3.8
