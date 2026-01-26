@@ -1,0 +1,6 @@
+Eureka server port -> 8761
+order-service -> 8081
+api-gateway -> 8080
+inventory-service ->8083
+auth-service -> 8082
+notification-service -> 8084
